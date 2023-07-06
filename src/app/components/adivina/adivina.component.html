@@ -1,0 +1,26 @@
+{{titulo}}
+
+<div class="form-group">
+    <br>
+    <label class="m-3" for="idnum">Numero</label>
+    <input class="m-3" type="number" id="idnum" [(ngModel)]="numusuario">
+    <button class="btn btn-primary" (click)="comprobarIntento()">PROBAR</button>
+</div>
+
+<div class="mensaje text-danger" *ngIf="ganopierdo != ''">
+  {{ ganopierdo }}
+</div>
+
+<button class="btn btn-warning my-5" (click)="reset()">Reiniciar</button>
+
+
+
+<div class="final text-success" *ngIf="juegoTerminado">
+  {{finDelJuego}}
+</div>
+
+
+<!-- El atributo [(ngModel)]="numusuario" vincula este campo a la propiedad numusuario del componente AdivinaComponent. El valor ingresado en el campo se asigna a la propiedad y viceversa. -->
+
+
+<!-- El evento (click)="comprobarIntento()" está vinculado al método comprobarIntento() del componente AdivinaComponent. Cuando se hace clic en el botón, se ejecutará el método comprobarIntento() en el componente. -->
