@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { AdivinaComponent } from './components/adivina/adivina.component';
 import { DniComponent } from './components/dni/dni.component';
 import { PerroComponent } from './components/perro/perro.component';
+import { EjBasicoComponent } from './components/ej-basico/ej-basico.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdivinaComponent,
     DniComponent,
-    PerroComponent
+    PerroComponent,
+    EjBasicoComponent
   ],
   imports: [
     BrowserModule,

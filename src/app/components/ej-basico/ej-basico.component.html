@@ -1,0 +1,28 @@
+{{titulo}}
+
+
+
+<div>
+  <label class="m-3" for="idfrase">PALABRA</label>
+  <input class="m-3" type="text" id="idfrase" [(ngModel)]="fraseusuario">
+  <button class="btn btn-primary" (click)="getFraseUsuario()">ENVIAR</button>
+</div>
+
+<div class="mensaje text-danger" *ngIf="fraseusuario !== ''">
+</div>
+
+
+<div class="mensaje text-success" *ngIf="fraseAlReves != ''">
+  Frase al revés: {{ fraseAlReves }}
+</div>
+
+<div class="mensaje" *ngIf="longitud != 0">
+  Longitud cadena: {{ longitud }}
+</div>
+
+<div class="mensaje" *ngIf="esPar != false">
+  La cadena es {{ esPar ? 'par' : 'impar' }}
+</div>
+
+<button class="btn btn-warning my-5" (click)="reset()">RESET</button>
+
