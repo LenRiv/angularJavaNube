@@ -1,0 +1,53 @@
+<div class="container">
+
+<h1>{{titulo}}</h1>
+
+<div>
+  <label for="peso" class="m-3">Peso-'kg':</label>
+  <input type="number" id="peso" [(ngModel)]="peso">
+  <br>
+  <label for="altura" class="m-3">Altura en-'cm':</label>
+  <input type="number" id="altura" [(ngModel)]="altura"> 
+  <br>
+  <button class="btn btn-primary m-3" (click)="cacularImc()">Calcular IMC</button>
+</div>
+
+<div *ngIf="imc !== null">
+  <h3>Indice de masa corporal (IMC): {{ imc }}</h3>
+  <p>{{ imcRango }}</p>
+</div>
+
+<button class="btn btn-warning my-5" (click)="reset()">Reiniciar</button>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- *ngIf="listaDnis.length>0" class="table" -->
+  <!-- <table >
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">PESO</th>
+        <th scope="col">ALTURA</th>
+        <th scope="col">IMC</th>
+      </tr>
+    </thead>
+    <tbody> -->
+      <!-- //*ngFor="" -->
+      <!-- <tr > -->
+        <!-- {{}} -->
+        <!-- <td></td>
+        <td></td>
+        <td></td>
+      </tr> -->
+      <!--aquí tengo que mostrar mi lista d dnis :)-->
+    <!-- </tbody> -->

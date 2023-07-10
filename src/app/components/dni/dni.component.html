@@ -26,8 +26,8 @@
   </div>
 
   <div class="input-group mb-3">
-    <span class="input-group-text"  id="basic-addon1">DNI</span>
-    <input type="text"  class="form-control" placeholder="Meta su dni" [(ngModel)]="dni" >
+    <span class="input-group-text" id="basic-addon1">DNI</span>
+    <!-- <input type="text"  class="form-control" placeholder="Meta su dni" [(ngModel)]="dni" > -->
   </div>
 
 
@@ -51,5 +51,10 @@
       </tr>
       <!--aquí tengo que mostrar mi lista d dnis :)-->
     </tbody>
-    <button  class="btn btn-secondary" (click)="ordenarPorNumero()">Ordenar Por Numero</button>
+    <div>
+    <button  class="btn btn-secondary m-3" (click)="ordenarPorNumero()">Ordenar Por Numero</button>
+    <button  class="btn btn-secondary m-3" (click)="ordenarPorLetra()">Ordenar Por Letra</button>
+    </div>
   </table>
+
+  

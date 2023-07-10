@@ -1,0 +1,16 @@
+.container {
+  text-align: center;
+}
+
+img {
+  display: flex;
+  margin: 0 auto;
+  max-width: 200px;
+  max-width: 200px;
+}
+
+.btn {
+  background-color: #2b2222;
+  color: #ffffff;
+  font-size: 18px;
+}

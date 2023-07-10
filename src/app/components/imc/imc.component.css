@@ -1,0 +1,10 @@
+label, p {
+  font-size: 20px;
+  /* Tamaño de fuente */
+  color: #352a2a;
+  /* Color de texto gris oscuro */
+}
+
+.container {
+  background: linear-gradient(to bottom, #ffffff, #e6e6e6);
+}

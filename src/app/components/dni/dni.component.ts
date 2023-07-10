@@ -15,10 +15,11 @@ static readonly SECUENCIA_LETRAS_DNI:string = "TRWAGMYFPDXBNJZSQVHLCKE";
 
   dni:string;
   letra:string;
-  titulo:string;
+  titulo: string;
+  
 
   listaDnis:Array<Dni>;//esta lista, va a almacenar todos los dnis que calculemos
-  listaDnisExtranjeros!:Array<Dni>;//esta lista, va a almacenar todos los dnis que calculemos
+  listaDnisExtranjeros!:Array<Dni>;//esta lista, va a almacenar todos los dnis extranjeros que calculemos
 
   constructor() { 
     this.dni='';
@@ -48,29 +49,42 @@ static readonly SECUENCIA_LETRAS_DNI:string = "TRWAGMYFPDXBNJZSQVHLCKE";
     if (inputSeleccionado.value!="sin") 
     {
       //estoy en el caso extranjero , recalculo el dni
-       let dnistrin:string = inputSeleccionado.value + this.dni;
-       numdni = parseInt(dnistrin);
+      //Se concatena el valor del radio seleccionado con el número de DNI introducido por el y se almacena en la variable dnistrin.
+      let dnistrin: string = inputSeleccionado.value + this.dni;
+      //Convertimos dnistrin en un número con parseInt() y se asigna a numdni.
+      numdni = parseInt(dnistrin);
+      //El id del elemento de entrada de radio se asigna a dni.prefijo, que representa el prefijo del DNI extranjero.
        dni.prefijo = inputSeleccionado.id;    
     } 
+    //Si el valor es "sin" (DNI español sin prefijo extranjero), se ejecuta else. Se convierte el número de DNI a  (almacenado en this.dni) en un número y se asigna a numdni.
     else
     {
       numdni = parseInt(this.dni);
     }
     console.log(`El número introducido es  ${this.dni}`);
     //Integer numero = java
-    let resto:number =  numdni%23;
+    
+    //Se calcula el resto de la división por 23. Se almacena en la variable resto de tipo number.
+    let resto: number = numdni % 23;
+    //Acceso a la secuencia de letras SECUENCIA_LETRAS_DNI utilizando la clase DniComponent y se obtiene el carácter en la posición resto. Este carácter representa la letra correspondiente al número de DNI.
     this.letra = DniComponent.SECUENCIA_LETRAS_DNI.charAt(resto);
     console.log("la letra es " + this.letra);
+    
 
+    //Se asigna la letra calculada (this.letra) al atributo letra del objeto dni. 
+    //Se convierte el  DNI introducido (this.dni) en un número y se asigna a dni.numero.
     dni.letra = this.letra;
     dni.numero = parseInt(this.dni);
 
+    //Se añade el objeto dni al array listaDnis con el método push(). Se llama a las funciones obtenerDnisExtranjeros() y mostrarListaDnis() para actualizar la lista de DNIs extranjeros y mostrar los DNIs en la consola, respectivamente.
     this.listaDnis.push(dni);
     this.listaDnisExtranjeros = this.obtenerDnisExtranjeros();
 
     this.mostrarListaDnis();
 
-  }
+    }
+
+  
 
   obtenerDnisExtranjeros():Array<Dni>
   {
@@ -102,7 +116,7 @@ static readonly SECUENCIA_LETRAS_DNI:string = "TRWAGMYFPDXBNJZSQVHLCKE";
   //TODO: haced un componente con el ejercico del IMC peso, altura
 
   ordenarPorNumero(): void {
-    this.listaDnis.sort((a, b) => a.numero - b.numero);
+    this.listaDnis.sort((dni1, dni2) => dni1.numero - dni2.numero);
 
    /* this.listaDnis.sort(
       (a:Dni, b:Dni) => {
@@ -121,7 +135,21 @@ static readonly SECUENCIA_LETRAS_DNI:string = "TRWAGMYFPDXBNJZSQVHLCKE";
         return resultado;
       }
     )*/
-  }      
+  }    
+  
+
+
+  ordenarPorLetra(): void {
+  this.listaDnis.sort((letraDni1: Dni, letraDni2: Dni) => {
+    if (letraDni1.letra > letraDni2.letra) {
+      return 1;
+    } else if (letraDni1.letra < letraDni2.letra) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+}
   
 }
 
