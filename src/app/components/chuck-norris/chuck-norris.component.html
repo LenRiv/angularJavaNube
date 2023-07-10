@@ -1,8 +1,15 @@
 
-<div>
-  <button (click)="dameFrase()" class="btn btn-primary">Cargar frase</button>
-  <label for="frase" class="m-3">La frase RANDOM de Chuck es :</label>
-  {{fraseChuck}}
+<span class="titulo">{{titulo}}</span>
 
-   
+<img alt="logoChuck" class="img-fluid" src="assets/chucknorris_img.png">
+
+<div class="container">
+    <!-- <img alt="imagen" class="img-fluid" [src]="chuckweb"> -->
+  <br>
+  <div class="button">
+  <button (click)="dameFrase()" class="mibutton btn btn-primary">Cargar Frase</button>
+  </div>
+  <label for="frase" class="m-3">La frase RANDOM de Chuck es :</label>
+  <span>{{fraseChuck}}</span>
 </div>
+  
