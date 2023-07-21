@@ -18,7 +18,9 @@
 <div class="final text-success" *ngIf="juegoTerminado">
   {{finDelJuego}}
 </div>
-
+<div>
+<cd-timer format="intelli" #basicTimer></cd-timer>
+</div>
 
 <!-- El atributo [(ngModel)]="numusuario" vincula este campo a la propiedad numusuario del componente AdivinaComponent. El valor ingresado en el campo se asigna a la propiedad y viceversa. -->
 

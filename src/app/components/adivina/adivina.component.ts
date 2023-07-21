@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CdTimerComponent, TimeInterface } from 'angular-cd-timer';
 
 /**
    * 
@@ -35,13 +36,14 @@ export class AdivinaComponent implements OnInit {
   finDelJuego: string;
   juegoTerminado: boolean;
   finPartida: boolean;
+  //Asociamos cd-timer
+  @ViewChild('basicTimer') contador!:CdTimerComponent;
   
   constructor() {
     console.log("Estoy en el constructor");
     this.titulo = "ADIVINA UN NÚMERO EN 5 INTENTOS";
     this.numusuario = 0;
     
-
 
     //TODO: calcular el nuemero a adivinar
     this.numadivina = this.calcularNumAleatorioDe1a100();//Almacenamos el número aleatorio que se genera
@@ -56,6 +58,9 @@ export class AdivinaComponent implements OnInit {
   }
 
 
+  ngAfterViewInit(): void{
+    this.contador.stop();
+   }
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
     console.log("Estamos en OnInit");
@@ -84,6 +89,7 @@ export class AdivinaComponent implements OnInit {
   comprobarIntento(): void {
     if (this.numusuario === this.numadivina) {
       this.ganopierdo = "ACIERTO!!";
+      
     } else {
       if (this.numusuario < this.numadivina) {
         this.mensaje = "El número buscado es mayor que el introducido " + this.numusuario + ".";
@@ -99,7 +105,17 @@ export class AdivinaComponent implements OnInit {
         window.alert(this.mensaje);
         this.finDelJuego = "VUELVE A JUGAR!!!";
       }
-    }    
+        if (this.juegoTerminado)
+        {
+          this.juegoTerminado = true;
+      this.contador.stop();//paro el contador
+      let ti:TimeInterface = this.contador.get();
+      console.log("Has tardado " + ti.minutes + " minutos y " +ti.seconds + " segundos");
+      
+    }
+  }
+
+ 
        
   }
 

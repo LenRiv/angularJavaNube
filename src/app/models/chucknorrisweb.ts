@@ -2,7 +2,7 @@ export class Chucknorrisweb {
 
   
   value: string;
-  icon_url: string
+  icon_url: string;
 
   
   constructor() {
